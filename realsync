@@ -70,6 +70,12 @@ sub main {
         if (!defined $chdir && -f $REALSYNC_SPEC_FILE) {
             $chdir = ".";
         }
+        
+        if (defined $ARGV[1]) {
+            $REALSYNC_SPEC_FILE = $ARGV[1];
+            $DEFAULT_EXCLUDE[0] = $REALSYNC_SPEC_FILE;
+        }
+        
         if (!defined $chdir) {
             die "Usage:\n  realsync SOURCE_DIRECTORY_WHICH_IS_REPLICATED\n";
         }
